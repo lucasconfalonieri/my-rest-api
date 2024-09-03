@@ -47,19 +47,6 @@ app.put('/items/:id', (req, res) => {
     res.json(item);
 });
 
-app.delete('/items/:id', (req, res) => {
-    const { id } = req.params; 
-  
-    const index = items.findIndex(item => item.id === parseInt(id));
-  
-    if (index === -1) {
-      return res.status(404).json({ error: 'Item no encontrado' });
-    }
-  
-    items.splice(index, 1);
-  
-    res.status(204).end(); //Responder con 204 (Sin Contenido) para indicar que se eliminó correctamente
-});
 
 app.listen(3000, () => {
   console.log('API ejecutándose en http://localhost:3000');
